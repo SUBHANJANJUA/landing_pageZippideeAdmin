@@ -156,100 +156,102 @@ class ContactUsBody extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(context.width * 0.05),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: TextFormField(
-                                  decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      hintText: 'Name')),
-                            ),
-                            SizedBox(
-                              width: 30,
-                            ),
-                            Expanded(
-                              child: TextFormField(
-                                  decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      hintText: 'Phone')),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        TextFormField(
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(7),
-                                    borderSide: BorderSide(
-                                      color: AppColor.FieldBorder,
-                                    )),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(7),
-                                    borderSide: BorderSide(
-                                      color: AppColor.FieldBorder,
-                                    )),
-                                hintText: 'Email')),
-                        SizedBox(height: 20),
-                        TextFormField(
-                            maxLines: 10,
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(7),
-                                    borderSide: BorderSide(
-                                      color: AppColor.FieldBorder,
-                                    )),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(7),
-                                    borderSide: BorderSide(
-                                      color: AppColor.FieldBorder,
-                                    )),
-                                hintText: 'Email')),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          height: 57,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Send Message',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  AppColor.mainColorOrange),
-                            ),
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(7),
+                                            borderSide: BorderSide(
+                                              color: AppColor.FieldBorder,
+                                            )),
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(7),
+                                            borderSide: BorderSide(
+                                              color: AppColor.FieldBorder,
+                                            )),
+                                        hintText: 'Name')),
+                              ),
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Expanded(
+                                child: TextFormField(
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(7),
+                                            borderSide: BorderSide(
+                                              color: AppColor.FieldBorder,
+                                            )),
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(7),
+                                            borderSide: BorderSide(
+                                              color: AppColor.FieldBorder,
+                                            )),
+                                        hintText: 'Phone')),
+                              ),
+                            ],
                           ),
-                        )
-                      ],
+                          SizedBox(height: 20),
+                          TextFormField(
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                      borderSide: BorderSide(
+                                        color: AppColor.FieldBorder,
+                                      )),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                      borderSide: BorderSide(
+                                        color: AppColor.FieldBorder,
+                                      )),
+                                  hintText: 'Email')),
+                          SizedBox(height: 20),
+                          TextFormField(
+                              maxLines: 10,
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                      borderSide: BorderSide(
+                                        color: AppColor.FieldBorder,
+                                      )),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(7),
+                                      borderSide: BorderSide(
+                                        color: AppColor.FieldBorder,
+                                      )),
+                                  hintText: 'Email')),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            height: 57,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Send Message',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    AppColor.mainColorOrange),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
