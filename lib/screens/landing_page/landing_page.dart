@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:zippidee_landing_page/resources/Text_Size/text_size.dart';
+import 'package:zippidee_landing_page/resources/responsive/Responsive.dart';
 import 'package:zippidee_landing_page/resources/string/common_string.dart';
 
 import '../../Controller/TabBar_controller/TabBarController.dart';
+import '../../Controller/toogle_answer/toogle_answer_controller.dart';
 import '../../resources/Colors/AppColor.dart';
 import 'ContactUsTab.dart';
 import 'HomeTab.dart';
@@ -19,6 +21,7 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   List<Widget> EventsData = [HomeTab(), ContactUsTab()];
+ final ToogleAnswerController toogleMobile = Get.put(ToogleAnswerController());
  // int selectedIndex = 0;
 final DashboardController dashboardController = Get.put(DashboardController());
   @override
@@ -28,35 +31,52 @@ final DashboardController dashboardController = Get.put(DashboardController());
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(120),
 
-        child:Obx(()=> AppBar(
+        child: AppBar(
           toolbarHeight: 120,
           backgroundColor: Colors.white,
           actions: [
-            GestureDetector(
-                onTap: () {
-                  dashboardController.selectIndex(0);
-                  // setState(() {
-                  //   selectedIndex = 0;
-                  // });
-                },
-                child: Text("Home", style: TextSizeTheme.TabBar.copyWith(color: dashboardController.selectedIndex ==0 ?
-                AppColor.mainColorOrange:Colors.black)
-                )
-            ),
-            SizedBox(width: context.width*0.025,),
-            GestureDetector(
-                onTap: () {
-                  dashboardController.selectIndex(1);
-                  // setState(() {
-                  //   selectedIndex = 1;
-                  // });
-                },
-                child: Padding(
-                  padding:  EdgeInsets.only(right: context.width*0.05),
-                  child: Text("Contact Us",style: TextSizeTheme.TabBar.copyWith(color: dashboardController.selectedIndex ==0 ?
-                  Colors.black: AppColor.mainColorOrange)
-                  ),
-                )),
+            Responsive.isMobile(context)?
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: GestureDetector(
+                  onTap: (){
+                    Scaffold.of(context).openDrawer();
+                  },
+                  child:Container(width: 2,height: 2,)),
+            )
+
+                : Obx(()=>Row(
+
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      dashboardController.selectIndex(0);
+                      // setState(() {
+                      //   selectedIndex = 0;
+                      // });
+                    },
+                    child: Text("Home", style: TextSizeThemeChrome.TabBar.copyWith(color: dashboardController.selectedIndex ==0 ?
+                    AppColor.mainColorOrange:Colors.black)
+                    )
+                ),
+                SizedBox(width: context.width*0.025,),
+                GestureDetector(
+                    onTap: () {
+                      dashboardController.selectIndex(1);
+                      // setState(() {
+                      //   selectedIndex = 1;
+                      // });
+                    },
+                    child: Padding(
+                      padding:  EdgeInsets.only(right: context.width*0.05),
+                      child: Text("Contact Us",style: TextSizeThemeChrome.TabBar.copyWith(color: dashboardController.selectedIndex ==0 ?
+                      Colors.black: AppColor.mainColorOrange)
+                      ),
+                    )),
+              ],
+            ),),
+
           ],
           title: Padding(
             padding: EdgeInsets.all( context.width * 0.05, ),
@@ -66,9 +86,59 @@ final DashboardController dashboardController = Get.put(DashboardController());
                 child: Image.asset('${CommonString.appImg}logo.png')),
           ),
 
-        ),)
+        ),
       ),
-      body:PageView.builder(
+      drawer:Obx(()=> Drawer(
+        backgroundColor: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView(
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        dashboardController.selectIndex(0);
+                        Get.back();
+                        // setState(() {
+                        //   selectedIndex = 0;
+                        // });
+                      },
+                      child: Row(
+                        children: [  Icon(Icons.home,color: dashboardController.selectedIndex ==0 ?
+                        AppColor.mainColorOrange:Colors.black), SizedBox(width: 10,),
+                          Text("Home", style: TextSizeThemeChrome.TabBar.copyWith(color: dashboardController.selectedIndex ==0 ?
+                          AppColor.mainColorOrange:Colors.black)
+                          ),
+                        ],
+                      )
+                  ),
+                ],
+              ),
+              SizedBox(height: 10,),
+              GestureDetector(
+                  onTap: () {
+                    dashboardController.selectIndex(1);
+                    Get.back();
+                    // setState(() {
+                    //   selectedIndex = 1;
+                    // });
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.call,color: dashboardController.selectedIndex ==0 ?
+                      Colors.black:AppColor.mainColorOrange), SizedBox(width: 10,),
+                      Text("Contact Us",style: TextSizeThemeChrome.TabBar.copyWith(color: dashboardController.selectedIndex ==0 ?
+                      Colors.black: AppColor.mainColorOrange)
+                      ),
+                    ],
+                  )),
+            ],
+          ),
+        ),
+      ),),
+      body:
+      PageView.builder(
         itemCount: EventsData.length,
         controller: PageController(viewportFraction: 1),
         onPageChanged: (value) {
@@ -80,7 +150,7 @@ final DashboardController dashboardController = Get.put(DashboardController());
         itemBuilder: (BuildContext context, int itemIndex) {
           return Obx(() => EventsData[dashboardController.selectedIndex.value]);
         },
-      ),
+      )
 
     );
   }

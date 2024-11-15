@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../Colors/AppColor.dart';
 
-class TextSizeTheme{
+class TextSizeThemeChrome{
   static TextStyle heading1 =  const TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 36,
@@ -69,4 +69,46 @@ static TextStyle ContactSubHeading =   TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
       color:Color.fromRGBO(201, 201, 201, 1));
+}
+
+
+
+
+
+class TextSizeThemeMobile{
+  static TextStyle heading1 =  const TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 25,
+  );
+    static TextStyle heading2 =  const TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 25,
+  );
+
+  static TextStyle heading3 =  const TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    color: Color.fromRGBO(83, 83, 83, 1),
+  );
+  static TextStyle ButtonWhite =  const TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    color: Colors.white,
+  );
+  static TextStyle ButtonBlack =  const TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    color: Colors.black,
+  );
+  static TextStyle Step1 =   TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 30,
+    color: AppColor.mainColorOrange,
+  );
+  static TextStyle ftHeadingWhite =   TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.w400,
+      color: Colors.white);
+
+
 }

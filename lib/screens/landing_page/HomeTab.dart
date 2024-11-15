@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zippidee_landing_page/resources/responsive/Responsive.dart';
 import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWidgets/HomeSlider.dart';
 import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWidgets/Step1Container.dart';
 import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWidgets/Step2Container.dart';
@@ -86,7 +87,63 @@ class HomeTab extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
-            child: Row(
+            child: Responsive.isMobile(context) ?
+            //for Mobile View
+            Column(
+
+              children: [
+                //Mobile
+                SizedBox(height: 90,),
+                Column(
+                  children: [
+                    Text(
+                      'A one-stop solution for all your routine needs, available wherever you are.',
+                      style: TextSizeThemeMobile.heading1, textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Text(
+                      'Zippidee is your all-in-one solution for everyday tasks. Whatever you need, we bring top professionals right to your fingertips. Our easy-to-use app connects you with qualified experts in just a few taps, saving you time and effort. ',
+                      style: TextSizeThemeMobile.heading3,
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Column(
+                      children: [
+                        ButtonWidgetMobile(
+                          text: 'Download on the Google Play',
+                          icon: Image.asset(
+                              '${CommonString.appImg}playstore.png'),
+                          borderColor: AppColor.whiteColor,
+                          InnerColor: AppColor.mainColorOrange,
+                          textColor: TextSizeThemeMobile.ButtonWhite,
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        ButtonWidgetMobile(
+                          text: 'Download on the App Store',
+                          icon: Image.asset(
+                              '${CommonString.appImg}apple.png'),
+                          borderColor: AppColor.mainColorOrange,
+                          InnerColor: AppColor.whiteColor,
+                          textColor: TextSizeThemeMobile.ButtonBlack,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: context.width * 0.03,
+                ),
+                Image.asset('${CommonString.appImg}img1.png'),
+              ],
+            )
+
+            //for chorom View
+                :  Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
@@ -94,38 +151,39 @@ class HomeTab extends StatelessWidget {
                     children: [
                       Text(
                         'A one-stop solution for all your routine needs, available wherever you are.',
-                        style: TextSizeTheme.heading1,
+                        style: TextSizeThemeChrome.heading1,
                       ),
                       SizedBox(
                         height: 25,
                       ),
                       Text(
                         'Zippidee is your all-in-one solution for everyday tasks. Whatever you need, we bring top professionals right to your fingertips. Our easy-to-use app connects you with qualified experts in just a few taps, saving you time and effort. ',
-                        style: TextSizeTheme.heading3,
+                        style: TextSizeThemeChrome.heading3,
                       ),
+                      SizedBox(height: 30,),
                       Row(
                         children: [
                           Expanded(
-                            child: ButtonWidget(
+                            child: ButtonWidgetChrome(
                               text: 'Download on the Google Play',
                               icon: Image.asset(
                                   '${CommonString.appImg}playstore.png'),
                               borderColor: AppColor.whiteColor,
                               InnerColor: AppColor.mainColorOrange,
-                              textColor: TextSizeTheme.ButtonWhite,
+                              textColor: TextSizeThemeChrome.ButtonWhite,
                             ),
                           ),
                           SizedBox(
                             width: context.width * 0.005,
                           ),
                           Expanded(
-                            child: ButtonWidget(
+                            child: ButtonWidgetChrome(
                               text: 'Download on the App Store',
                               icon: Image.asset(
                                   '${CommonString.appImg}apple.png'),
                               borderColor: AppColor.mainColorOrange,
                               InnerColor: AppColor.whiteColor,
-                              textColor: TextSizeTheme.ButtonBlack,
+                              textColor: TextSizeThemeChrome.ButtonBlack,
                             ),
                           ),
                         ],
@@ -145,7 +203,69 @@ class HomeTab extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
-            child: Row(
+            child:
+            Responsive.isMobile(context) ?
+            //for Mobile View
+
+            Column(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text( textAlign: TextAlign.center,
+                      'Some Excellent Features For You',
+                      style: TextSizeThemeMobile.heading1,
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Instant Booking', textAlign: TextAlign.center,
+                      style: TextSizeThemeMobile.heading2,
+                    ),
+                    Text( textAlign: TextAlign.center,
+                      'Instant Booking feature lets you find and schedule services in just a few taps. Say goodbye to long waits and set appointments at times that work best for you.',
+                      style: TextSizeThemeMobile.heading3,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text( textAlign: TextAlign.center,
+                      'Verified Professionals',
+                      style: TextSizeThemeMobile.heading2,
+                    ),
+                    Text( textAlign: TextAlign.center,
+                      'Trust is our priority. Every professional on Zippidee is thoroughly vetted and verified to ensure quality and reliability. With experienced experts across a wide range of services, you can be confident you re in good hands, every time.',
+                      style: TextSizeThemeMobile.heading3,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text( textAlign: TextAlign.center,
+                      'Safe & Secure Payments',
+                      style: TextSizeThemeMobile.heading2,
+                    ),
+                    Text( textAlign: TextAlign.center,
+                      'Zippidee uses top-tier encryption and payment processing to protect your information, making transactions fast, easy, and worry-free.',
+                      style: TextSizeThemeMobile.heading3,
+                    ),
+                  ],
+                ),
+
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset('${CommonString.appImg}img2.png'),
+              ],
+            )
+
+
+
+
+
+            // for chrome view
+             : Row(
               children: [
                 Expanded(child: Image.asset('${CommonString.appImg}img2.png')),
                 SizedBox(
@@ -157,47 +277,47 @@ class HomeTab extends StatelessWidget {
                       children: [
                         Text(
                           'Some Excellent',
-                          style: TextSizeTheme.heading1,
+                          style: TextSizeThemeChrome.heading1,
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Features For You',
-                          style: TextSizeTheme.heading1,
+                          style: TextSizeThemeChrome.heading1,
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Instant Booking',
-                          style: TextSizeTheme.heading2,
+                          style: TextSizeThemeChrome.heading2,
                         ),
                         Text(
                           'Instant Booking feature lets you find and schedule services in just a few taps. Say goodbye to long waits and set appointments at times that work best for you.',
-                          style: TextSizeTheme.heading3,
+                          style: TextSizeThemeChrome.heading3,
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Verified Professionals',
-                          style: TextSizeTheme.heading2,
+                          style: TextSizeThemeChrome.heading2,
                         ),
                         Text(
                           'Trust is our priority. Every professional on Zippidee is thoroughly vetted and verified to ensure quality and reliability. With experienced experts across a wide range of services, you can be confident you re in good hands, every time.',
-                          style: TextSizeTheme.heading3,
+                          style: TextSizeThemeChrome.heading3,
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
                           'Safe & Secure Payments',
-                          style: TextSizeTheme.heading2,
+                          style: TextSizeThemeChrome.heading2,
                         ),
                         Text(
                           'Zippidee uses top-tier encryption and payment processing to protect your information, making transactions fast, easy, and worry-free.',
-                          style: TextSizeTheme.heading3,
+                          style: TextSizeThemeChrome.heading3,
                         ),
                       ],
                     ))
@@ -205,47 +325,91 @@ class HomeTab extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: context.width * 0.05,
+            height:150,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'How It Works',
-                style: TextSizeTheme.heading1,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                'Need a service? Zippidee sends vetted pros straight to you quickly and easily!',
-                style: TextSizeTheme.heading3,
-              ),
-              Text(
-                'Zippidee works so you don t have to! ',
-                style: TextSizeTheme.heading3,
-              ),
-            ],
+
+          // Step 1 Container
+          Container(
+            child: Responsive.isMobile(context) ?
+            //For Mobile View
+
+            Column(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'How It Works',
+                      style: TextSizeThemeMobile.heading1,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text( textAlign: TextAlign.center,
+                      'Need a service? Zippidee sends vetted pros straight to you quickly and easily! Zippidee works so you don t have to! ',
+                      style: TextSizeThemeMobile.heading3,
+                    ),
+
+                  ],
+                ),
+                SizedBox(
+                  height: context.width * 0.05,
+                ),
+                Step1Container(),
+              ],
+            )
+
+
+
+
+            // For Chrome View
+                :Column(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'How It Works',
+                      style: TextSizeThemeChrome.heading1,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'Need a service? Zippidee sends vetted pros straight to you quickly and easily!',
+                      style: TextSizeThemeChrome.heading3,
+                    ),
+                    Text(
+                      'Zippidee works so you don t have to! ',
+                      style: TextSizeThemeChrome.heading3,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: context.width * 0.05,
+                ),
+                Step1Container(),
+              ],
+            ) ,
           ),
           SizedBox(
-            height: context.width * 0.05,
+            height:150,
           ),
-          Step1Container(),
-          SizedBox(
-            height: context.width * 0.05,
-          ),
+
+
           Step2Container(),
           SizedBox(
-            height: context.width * 0.05,
+            height:150,
           ),
           Step3Container(),
           SizedBox(
-            height: context.width * 0.1,
+            height:150,
           ),
           HomeSlider(dataList: dataList),
           SizedBox(
-            height: context.width * 0.1,
+            height:150,
           ),
           HomeQestions(answercontroller: answercontroller),
           SizedBox(

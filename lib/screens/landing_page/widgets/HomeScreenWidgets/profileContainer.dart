@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../resources/Colors/AppColor.dart';
 import '../../../../resources/Text_Size/text_size.dart';
+import '../../../../resources/responsive/Responsive.dart';
 import '../../../../resources/string/common_string.dart';
 
 class ProfileContainer extends StatelessWidget {
@@ -19,7 +20,57 @@ class ProfileContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Responsive.isMobile(context) ?
+      //for mobile view
+      Container(
+      width: 350,
+      decoration: BoxDecoration(
+        color: AppColor.bgContainerGrey,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(25),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                    width: 65,
+                    height: 65,
+                    child: Image.asset('${CommonString.appImg}dp.png')),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      profileName,
+                      style: TextSizeThemeChrome.ProfileName,
+                    ),
+                    Text(
+                      profileSubName,
+                      style: TextSizeThemeChrome.ProfileSubName,
+                    ),
+                  ],
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(textAlign: TextAlign.center,
+              profileText,
+              style: TextSizeThemeChrome.ProfileText,
+            )
+          ],
+        ),
+      ),
+    ):
+        //for chrome view
+    Container(
       width: 500,
       decoration: BoxDecoration(
         color: AppColor.bgContainerGrey,
@@ -44,11 +95,11 @@ class ProfileContainer extends StatelessWidget {
                   children: [
                     Text(
                       profileName,
-                      style: TextSizeTheme.ProfileName,
+                      style: TextSizeThemeChrome.ProfileName,
                     ),
                     Text(
                       profileSubName,
-                      style: TextSizeTheme.ProfileSubName,
+                      style: TextSizeThemeChrome.ProfileSubName,
                     ),
                   ],
                 )
@@ -59,11 +110,14 @@ class ProfileContainer extends StatelessWidget {
             ),
             Text(
               profileText,
-              style: TextSizeTheme.ProfileText,
+              style: TextSizeThemeChrome.ProfileText,
             )
           ],
         ),
       ),
-    );
+    )
+
+
+    ;
   }
 }

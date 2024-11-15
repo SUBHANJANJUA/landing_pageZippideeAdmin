@@ -6,7 +6,11 @@ class ToogleAnswerController extends GetxController {
   var isAnswerVisible3= false.obs;
   var isAnswerVisible4= false.obs;
   var isAnswerVisible5= false.obs;
+  var isMobile= false.obs;
 
+  void toggleMobileView() {
+    isMobile.value = !isMobile.value;
+  }
   void toggleAnswerVisibility1() {
     isAnswerVisible1.value = !isAnswerVisible1.value;
   }

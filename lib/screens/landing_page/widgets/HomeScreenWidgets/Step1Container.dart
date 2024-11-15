@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 
 import '../../../../resources/Colors/AppColor.dart';
 import '../../../../resources/Text_Size/text_size.dart';
+import '../../../../resources/responsive/Responsive.dart';
 import '../../../../resources/string/common_string.dart';
+import '../commonWidgets/DownloadAppButton.dart';
 import '../commonWidgets/buttonContainer.dart';
 
 class Step1Container extends StatelessWidget {
@@ -20,7 +22,50 @@ class Step1Container extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
-        child: Row(
+        child:  Responsive.isMobile(context) ?
+
+        //For  Mobile View
+        Column(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 42,
+                ),
+                Text( textAlign: TextAlign.center,
+                  'Step 1',
+                  style: TextSizeThemeMobile.Step1,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text( textAlign: TextAlign.center,
+                  'Browse Services',
+                  style: TextSizeThemeMobile.heading2,
+                ),
+                Text( textAlign: TextAlign.center,
+                  'Our platform offers a broad range of services. Easily navigate through our categories or use the search bar to pinpoint the exact service you need. Each category is thoughtfully organized, allowing you to discover top-rated professionals in seconds—no more scrolling endlessly or making calls to find reliable help.',
+                  style: TextSizeThemeMobile.heading3,
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                DownloadAppButton(),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            ),
+
+            Image.asset('${CommonString.appImg}img3.png'),
+            SizedBox(
+              height: 25,
+            ),
+          ],
+        ):
+            // For Chrome View
+        Row(
           children: [
             Expanded(
                 child: Image.asset('${CommonString.appImg}img3.png')),
@@ -33,30 +78,33 @@ class Step1Container extends StatelessWidget {
                   children: [
                     Text(
                       'Step 1',
-                      style: TextSizeTheme.Step2,
+                      style: TextSizeThemeChrome.Step2,
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Text(
                       'Browse Services',
-                      style: TextSizeTheme.heading2,
+                      style: TextSizeThemeChrome.heading2,
                     ),
                     Text(
                       'Our platform offers a broad range of services. Easily navigate through our categories or use the search bar to pinpoint the exact service you need. Each category is thoughtfully organized, allowing you to discover top-rated professionals in seconds—no more scrolling endlessly or making calls to find reliable help.',
-                      style: TextSizeTheme.heading3,
+                      style: TextSizeThemeChrome.heading3,
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     SizedBox(
                       width: context.width * 0.17,
-                      child: ButtonWidget(
+                      child: ButtonWidgetChrome(
                         text: 'Download App',
                         borderColor: AppColor.whiteColor,
                         InnerColor: AppColor.mainColorOrange,
-                        textColor: TextSizeTheme.ButtonWhite,
+                        textColor: TextSizeThemeChrome.ButtonWhite,
                       ),
+                    ),
+                    SizedBox(
+                      height: 25,
                     ),
                   ],
                 ))

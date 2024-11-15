@@ -22,28 +22,25 @@ class HomeSlider extends StatelessWidget {
         children: [
           Text(
             'Testimonial',
-            style: TextSizeTheme.Step1,
+            style: TextSizeThemeMobile.Step1,
           ),
           SizedBox(
             height: 10,
           ),
-          Text(
+          Text( textAlign: TextAlign.center,
             'What Our Client’s Say',
-            style: TextSizeTheme.heading1,
+            style: TextSizeThemeMobile.heading1,
           ),
           SizedBox(
             height: 10,
           ),
-          Text(
-            'See what Zippidee users have to say about their experiences. Here’s how Zippidee has ',
-            style: TextSizeTheme.heading3,
+          Text( textAlign: TextAlign.center,
+            'See what Zippidee users have to say about their experiences. Here’s how Zippidee has helped them simplify their routine and save time.',
+            style: TextSizeThemeMobile.heading3,
           ),
-          Text(
-            'helped them simplify their routine and save time.',
-            style: TextSizeTheme.heading3,
-          ),
+
           SizedBox(
-            height: context.width * 0.03,
+            height: 25,
           ),
           SizedBox(
             height: 250,
@@ -53,7 +50,7 @@ class HomeSlider extends StatelessWidget {
                 children: List.generate(dataList.length, (index) {
                   final item = dataList[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    padding: const EdgeInsets.only(right: 25),
                     child: ProfileContainer(
                       profileName: item['name']!,
                       profileSubName: item['subname']!,

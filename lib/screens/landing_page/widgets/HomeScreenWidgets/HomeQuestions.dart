@@ -19,12 +19,12 @@ class HomeQestions extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
       child: Column(
         children: [
-          Text(
+          Text(textAlign: TextAlign.center,
             'Answers to your questions',
-            style: TextSizeTheme.heading1,
+            style: TextSizeThemeChrome.heading1,
           ),
           SizedBox(
-            height: context.width * 0.02,
+            height: 25,
           ),
           Padding(
             padding:
@@ -50,7 +50,7 @@ class HomeQestions extends StatelessWidget {
                             Expanded(
                                 child: Text(
                                   'Enim sodales consequat adipiscing facilisis massa venenatis, non lorem lobortis?',
-                                  style: TextSizeTheme.QuestionTheme,
+                                  style: TextSizeThemeChrome.QuestionTheme,
                                 )),
                             Obx(()=> Icon(
                               answercontroller.isAnswerVisible1.value?
@@ -64,7 +64,7 @@ class HomeQestions extends StatelessWidget {
                       Obx(()=>answercontroller.isAnswerVisible1.value?
                       Text('Adipiscing ac lacus vel sed sed sed tincidunt at. Laoreet consequat donec id fermentum. Metus, tortor tellus ornare mauris, convallis quis. Tristique vulputate enim, vitae sodales nisl enim est. Ut diam volutpat, enim convallis. Pulvinar posuere gravida vitae fringilla eu tellus neque est feugiat.',
 
-                          style: TextSizeTheme.heading3.copyWith(color: Colors.black)
+                          style: TextSizeThemeChrome.heading3.copyWith(color: Colors.black)
                       ):SizedBox.shrink(),),
                     ],
                   ),
@@ -88,7 +88,7 @@ class HomeQestions extends StatelessWidget {
                             Expanded(
                                 child: Text(
                                   'Venenatis nulla sagittis nunc, lobortis nec sollicitudin neque, dolor?',
-                                  style: TextSizeTheme.QuestionTheme,
+                                  style: TextSizeThemeChrome.QuestionTheme,
                                 )),
                             Obx(()=> Icon(
                               answercontroller.isAnswerVisible2.value?
@@ -102,7 +102,7 @@ class HomeQestions extends StatelessWidget {
                       Obx(()=>answercontroller.isAnswerVisible2.value?
                       Text('Adipiscing ac lacus vel sed sed sed tincidunt at. Laoreet consequat donec id fermentum. Metus, tortor tellus ornare mauris, convallis quis. Tristique vulputate enim, vitae sodales nisl enim est. Ut diam volutpat, enim convallis. Pulvinar posuere gravida vitae fringilla eu tellus neque est feugiat.',
 
-                          style: TextSizeTheme.heading3.copyWith(color: Colors.black)
+                          style: TextSizeThemeChrome.heading3.copyWith(color: Colors.black)
                       ):SizedBox.shrink(),),
                     ],
                   ),
@@ -126,7 +126,7 @@ class HomeQestions extends StatelessWidget {
                             Expanded(
                                 child: Text(
                                   'Varius ultricies molestie tellus fermentum, viverra ipsum scelerisque etiam lorem?',
-                                  style: TextSizeTheme.QuestionTheme,
+                                  style: TextSizeThemeChrome.QuestionTheme,
                                 )),
                             Obx(()=> Icon(
                               answercontroller.isAnswerVisible3.value?
@@ -140,7 +140,7 @@ class HomeQestions extends StatelessWidget {
                       Obx(()=>answercontroller.isAnswerVisible3.value?
                       Text('Adipiscing ac lacus vel sed sed sed tincidunt at. Laoreet consequat donec id fermentum. Metus, tortor tellus ornare mauris, convallis quis. Tristique vulputate enim, vitae sodales nisl enim est. Ut diam volutpat, enim convallis. Pulvinar posuere gravida vitae fringilla eu tellus neque est feugiat.',
 
-                          style: TextSizeTheme.heading3.copyWith(color: Colors.black)
+                          style: TextSizeThemeChrome.heading3.copyWith(color: Colors.black)
                       ):SizedBox.shrink(),),
                     ],
                   ),
@@ -164,7 +164,7 @@ class HomeQestions extends StatelessWidget {
                             Expanded(
                                 child: Text(
                                   'Nulla etiam vitae, at sagittis, nibh ultrices mattis feugiat faucibus?',
-                                  style: TextSizeTheme.QuestionTheme,
+                                  style: TextSizeThemeChrome.QuestionTheme,
                                 )),
                             Obx(()=> Icon(
                               answercontroller.isAnswerVisible4.value?
@@ -178,7 +178,7 @@ class HomeQestions extends StatelessWidget {
                       Obx(()=>answercontroller.isAnswerVisible4.value?
                       Text('Adipiscing ac lacus vel sed sed sed tincidunt at. Laoreet consequat donec id fermentum. Metus, tortor tellus ornare mauris, convallis quis. Tristique vulputate enim, vitae sodales nisl enim est. Ut diam volutpat, enim convallis. Pulvinar posuere gravida vitae fringilla eu tellus neque est feugiat.',
 
-                          style: TextSizeTheme.heading3.copyWith(color: Colors.black)
+                          style: TextSizeThemeChrome.heading3.copyWith(color: Colors.black)
                       ):SizedBox.shrink(),),
                     ],
                   ),
@@ -202,7 +202,7 @@ class HomeQestions extends StatelessWidget {
                             Expanded(
                                 child: Text(
                                   'Enim sodales consequat adipiscing facilisis massa venenatis, non lorem lobortis?',
-                                  style: TextSizeTheme.QuestionTheme,
+                                  style: TextSizeThemeChrome.QuestionTheme,
                                 )),
                             Obx(()=> Icon(
                               answercontroller.isAnswerVisible5.value?
@@ -216,7 +216,7 @@ class HomeQestions extends StatelessWidget {
                       Obx(()=>answercontroller.isAnswerVisible5.value?
                       Text('Adipiscing ac lacus vel sed sed sed tincidunt at. Laoreet consequat donec id fermentum. Metus, tortor tellus ornare mauris, convallis quis. Tristique vulputate enim, vitae sodales nisl enim est. Ut diam volutpat, enim convallis. Pulvinar posuere gravida vitae fringilla eu tellus neque est feugiat.',
 
-                          style: TextSizeTheme.heading3.copyWith(color: Colors.black)
+                          style: TextSizeThemeChrome.heading3.copyWith(color: Colors.black)
                       ):SizedBox.shrink(),),
                     ],
                   ),
