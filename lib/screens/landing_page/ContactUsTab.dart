@@ -20,12 +20,10 @@ class ContactUsTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: context.width * 0.1,
-              ),
+
               ContactUsBody(),
               SizedBox(
-                height: context.width * 0.1,
+                height: 20,
               ),
               BottomNavBar(),
             ],

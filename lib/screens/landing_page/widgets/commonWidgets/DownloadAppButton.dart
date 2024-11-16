@@ -7,8 +7,14 @@ import '../../../../resources/Text_Size/text_size.dart';
 class DownloadAppButton extends StatelessWidget {
   const DownloadAppButton({
     super.key,
+    required this.text,
+    this.icon,
+    required this.border,
 
   });
+  final String text;
+  final Widget? icon;
+  final bool border;
 
 
 
@@ -16,23 +22,31 @@ class DownloadAppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 65,
-      width: 170,
+      width: 190,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColor.mainColorOrange,
+          color: border?AppColor.whiteColor: AppColor.mainColorOrange,
           border: Border.all(
-            color: AppColor.whiteColor,
+            color:AppColor.mainColorOrange,
           )),
       child: Padding(
         padding: EdgeInsets.all(20),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-
+            icon == null
+                ? SizedBox.shrink()
+                : Row(
+              children: [
+                SizedBox(width: 35, height: 38, child: icon),SizedBox(
+                  width: 5,
+                ),
+              ],
+            ),
             Expanded(
                 child: Text( textAlign: TextAlign.center,
-                  'Download App',
-                  style: TextSizeThemeMobile.ButtonWhite,
+                  text,
+                  style:border?TextSizeThemeMobile.ButtonBlack: TextSizeThemeMobile.ButtonWhite,
 
                 )),
           ],

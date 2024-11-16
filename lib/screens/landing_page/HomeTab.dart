@@ -5,6 +5,7 @@ import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWid
 import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWidgets/Step1Container.dart';
 import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWidgets/Step2Container.dart';
 import 'package:zippidee_landing_page/screens/landing_page/widgets/HomeScreenWidgets/Step3Container.dart';
+import 'package:zippidee_landing_page/screens/landing_page/widgets/commonWidgets/DownloadAppButton.dart';
 import '../../Controller/toogle_answer/toogle_answer_controller.dart';
 import '../../resources/Colors/AppColor.dart';
 import '../../resources/Text_Size/text_size.dart';
@@ -84,16 +85,20 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        //mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //Row one
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
+            padding: EdgeInsets.only(left: context.width * 0.05, right: context.width * 0.05),
             child: Responsive.isMobile(context) ?
             //for Mobile View
             Column(
 
               children: [
                 //Mobile
-                SizedBox(height: 90,),
+                SizedBox(height: 10),
                 Column(
                   children: [
                     Text(
@@ -101,51 +106,46 @@ class HomeTab extends StatelessWidget {
                       style: TextSizeThemeMobile.heading1, textAlign: TextAlign.center,
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 10,
                     ),
-                    Text(
+                    Text(textAlign: TextAlign.center,
                       'Zippidee is your all-in-one solution for everyday tasks. Whatever you need, we bring top professionals right to your fingertips. Our easy-to-use app connects you with qualified experts in just a few taps, saving you time and effort. ',
                       style: TextSizeThemeMobile.heading3,
                     ),
                     SizedBox(
                       height: 25,
                     ),
+
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ButtonWidgetMobile(
-                          text: 'Download on the Google Play',
+                        DownloadAppButton(text: 'Google Play', border: false,
                           icon: Image.asset(
                               '${CommonString.appImg}playstore.png'),
-                          borderColor: AppColor.whiteColor,
-                          InnerColor: AppColor.mainColorOrange,
-                          textColor: TextSizeThemeMobile.ButtonWhite,
-                        ),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        ButtonWidgetMobile(
-                          text: 'Download on the App Store',
+                        ), SizedBox(height: 10,),
+                        DownloadAppButton(text:  'App Store', border: true,
                           icon: Image.asset(
                               '${CommonString.appImg}apple.png'),
-                          borderColor: AppColor.mainColorOrange,
-                          InnerColor: AppColor.whiteColor,
-                          textColor: TextSizeThemeMobile.ButtonBlack,
-                        ),
+                        )
                       ],
-                    )
+                    ),
+                    //
                   ],
                 ),
                 SizedBox(
                   height: context.width * 0.03,
                 ),
-                Image.asset('${CommonString.appImg}img1.png'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('${CommonString.appImg}Cimg1.png',),
+                ),
               ],
             )
 
             //for chorom View
                 :  Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
                 Expanded(
                   child: Column(
                     children: [
@@ -194,13 +194,15 @@ class HomeTab extends StatelessWidget {
                 SizedBox(
                   width: context.width * 0.03,
                 ),
-                Expanded(child: Image.asset('${CommonString.appImg}img1.png')),
-              ],
-            ),
+                Expanded(child: Image.asset('${CommonString.appImg}Cimg1.png', height: context.width*0.3,)),
+                                ],
+                              ),
           ),
           SizedBox(
-            height: context.width * 0.05,
+            height: 20,
           ),
+
+          //Row 2
           Padding(
             padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
             child:
@@ -218,11 +220,13 @@ class HomeTab extends StatelessWidget {
                     ),
 
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Text(
                       'Instant Booking', textAlign: TextAlign.center,
                       style: TextSizeThemeMobile.heading2,
+                    ),SizedBox(
+                      height: 5,
                     ),
                     Text( textAlign: TextAlign.center,
                       'Instant Booking feature lets you find and schedule services in just a few taps. Say goodbye to long waits and set appointments at times that work best for you.',
@@ -234,6 +238,8 @@ class HomeTab extends StatelessWidget {
                     Text( textAlign: TextAlign.center,
                       'Verified Professionals',
                       style: TextSizeThemeMobile.heading2,
+                    ),SizedBox(
+                      height: 5,
                     ),
                     Text( textAlign: TextAlign.center,
                       'Trust is our priority. Every professional on Zippidee is thoroughly vetted and verified to ensure quality and reliability. With experienced experts across a wide range of services, you can be confident you re in good hands, every time.',
@@ -245,6 +251,8 @@ class HomeTab extends StatelessWidget {
                     Text( textAlign: TextAlign.center,
                       'Safe & Secure Payments',
                       style: TextSizeThemeMobile.heading2,
+                    ),SizedBox(
+                      height: 5,
                     ),
                     Text( textAlign: TextAlign.center,
                       'Zippidee uses top-tier encryption and payment processing to protect your information, making transactions fast, easy, and worry-free.',
@@ -265,7 +273,7 @@ class HomeTab extends StatelessWidget {
 
 
             // for chrome view
-             : Row(
+                : Row(
               children: [
                 Expanded(child: Image.asset('${CommonString.appImg}img2.png')),
                 SizedBox(
@@ -325,7 +333,7 @@ class HomeTab extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height:150,
+            height:10,
           ),
 
           // Step 1 Container
@@ -388,32 +396,32 @@ class HomeTab extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: context.width * 0.05,
+                  height: 30,
                 ),
                 Step1Container(),
               ],
             ) ,
           ),
           SizedBox(
-            height:150,
+            height:50,
           ),
 
 
           Step2Container(),
           SizedBox(
-            height:150,
+            height:50,
           ),
           Step3Container(),
           SizedBox(
-            height:150,
+            height:50,
           ),
           HomeSlider(dataList: dataList),
           SizedBox(
-            height:150,
+            height:50,
           ),
           HomeQestions(answercontroller: answercontroller),
           SizedBox(
-            height: context.width * 0.1,
+            height: 50,
           ),
           BottomNavBar()
         ],

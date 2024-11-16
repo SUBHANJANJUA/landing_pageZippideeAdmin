@@ -43,6 +43,8 @@ class Step1Container extends StatelessWidget {
                 Text( textAlign: TextAlign.center,
                   'Browse Services',
                   style: TextSizeThemeMobile.heading2,
+                ),SizedBox(
+                  height: 5,
                 ),
                 Text( textAlign: TextAlign.center,
                   'Our platform offers a broad range of services. Easily navigate through our categories or use the search bar to pinpoint the exact service you need. Each category is thoughtfully organized, allowing you to discover top-rated professionals in seconds—no more scrolling endlessly or making calls to find reliable help.',
@@ -51,7 +53,7 @@ class Step1Container extends StatelessWidget {
                 SizedBox(
                   height: 25,
                 ),
-                DownloadAppButton(),
+                DownloadAppButton(text: 'Download App',border: false,),
               ],
             ),
             SizedBox(
@@ -68,7 +70,7 @@ class Step1Container extends StatelessWidget {
         Row(
           children: [
             Expanded(
-                child: Image.asset('${CommonString.appImg}img3.png')),
+                child: Image.asset('${CommonString.appImg}img3.png', height: context.width*0.3,)),
             SizedBox(
               width: context.width * 0.05,
             ),

@@ -44,6 +44,8 @@ class Step3Container extends StatelessWidget {
                 Text(
                   'Get It Done', textAlign: TextAlign.center,
                   style: TextSizeThemeMobile.heading2,
+                ),SizedBox(
+                  height: 5,
                 ),
                 Text( textAlign: TextAlign.center,
                   'After scheduling, sit back and let Zippidee handle the rest. A trusted professional will arrive at your doorstep at the scheduled time, fully prepared to deliver quality service. With Zippidee, getting things done is as simple as booking it and watching the work happen, hassle-free.',
@@ -52,7 +54,7 @@ class Step3Container extends StatelessWidget {
                 SizedBox(
                   height: 25,
                 ),
-                DownloadAppButton(),
+                DownloadAppButton(text: 'Download App',border: false,),
               ],
             ),
 
@@ -70,7 +72,7 @@ class Step3Container extends StatelessWidget {
         Row(
           children: [
             Expanded(
-                child: Image.asset('${CommonString.appImg}img5.png')),
+                child: Image.asset('${CommonString.appImg}img5.png', height: context.width*0.3,)),
             SizedBox(
               width: context.width * 0.05,
             ),
@@ -106,7 +108,7 @@ class Step3Container extends StatelessWidget {
                       ),
                     ),
                   ],
-                ))
+                )),
           ],
         ),
       ),

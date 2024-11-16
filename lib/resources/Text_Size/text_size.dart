@@ -20,6 +20,7 @@ class TextSizeThemeChrome{
    static TextStyle heading3 =  const TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 16,
+       height: 1.5,
      color: Color.fromRGBO(83, 83, 83, 1),
   );
    static TextStyle ButtonWhite =  const TextStyle(
@@ -78,17 +79,18 @@ static TextStyle ContactSubHeading =   TextStyle(
 class TextSizeThemeMobile{
   static TextStyle heading1 =  const TextStyle(
     fontWeight: FontWeight.w700,
-    fontSize: 25,
+    fontSize: 20,
   );
     static TextStyle heading2 =  const TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 25,
+    fontSize: 15,
   );
 
   static TextStyle heading3 =  const TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 16,
+    fontSize: 12,
     color: Color.fromRGBO(83, 83, 83, 1),
+          height: 1.5
   );
   static TextStyle ButtonWhite =  const TextStyle(
     fontWeight: FontWeight.w500,
@@ -102,13 +104,17 @@ class TextSizeThemeMobile{
   );
   static TextStyle Step1 =   TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 30,
+    fontSize: 18,
     color: AppColor.mainColorOrange,
   );
   static TextStyle ftHeadingWhite =   TextStyle(
-      fontSize: 22,
+      fontSize: 15,
       fontWeight: FontWeight.w400,
       color: Colors.white);
-
+  static TextStyle QuestionTheme =   TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    color: AppColor.QuestionColorbrown,
+  );
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zippidee_landing_page/resources/responsive/Responsive.dart';
 
 import '../../../../resources/Text_Size/text_size.dart';
 import 'profileContainer.dart';
@@ -20,24 +21,33 @@ class HomeSlider extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            'Testimonial',
-            style: TextSizeThemeMobile.Step1,
+          Padding(
+            padding: Responsive.isMobile(context)? EdgeInsets.symmetric(horizontal: 20):
+            EdgeInsets.symmetric(horizontal: context.width*0.2),
+            child: Column(
+              children: [
+                Text(
+                  'Testimonial',
+                  style: TextSizeThemeMobile.Step1,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text( textAlign: TextAlign.center,
+                  'What Our Client’s Say',
+                  style: TextSizeThemeMobile.heading2,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text( textAlign: TextAlign.center,
+                  'See what Zippidee users have to say about their experiences. Here’s how Zippidee has helped them simplify their routine and save time.',
+                  style: TextSizeThemeMobile.heading3,
+                ),
+              ],
+            ),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Text( textAlign: TextAlign.center,
-            'What Our Client’s Say',
-            style: TextSizeThemeMobile.heading1,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text( textAlign: TextAlign.center,
-            'See what Zippidee users have to say about their experiences. Here’s how Zippidee has helped them simplify their routine and save time.',
-            style: TextSizeThemeMobile.heading3,
-          ),
+
 
           SizedBox(
             height: 25,

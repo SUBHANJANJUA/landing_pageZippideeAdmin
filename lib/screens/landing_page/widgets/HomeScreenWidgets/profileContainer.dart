@@ -61,7 +61,7 @@ class ProfileContainer extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text(textAlign: TextAlign.center,
+            Text(
               profileText,
               style: TextSizeThemeChrome.ProfileText,
             )

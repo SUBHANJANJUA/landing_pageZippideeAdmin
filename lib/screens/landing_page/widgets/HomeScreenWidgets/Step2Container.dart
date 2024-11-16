@@ -43,6 +43,8 @@ class Step2Container extends StatelessWidget {
                 Text( textAlign: TextAlign.center,
                   'Book Instantly',
                   style: TextSizeThemeMobile.heading2,
+                ),SizedBox(
+                  height: 5,
                 ),
                 Text( textAlign: TextAlign.center,
                   'Once you ve found the service that fits your needs, booking it is quick and straightforward. Choose your preferred service, select a time that works best for you, and confirm your booking—all within a few taps. Zippidee makes scheduling stress-free by offering flexibility, so you can set appointments that fit into your busy life seamlessly. Skip the long waits and enjoy on-demand booking that adapts to your schedule.',
@@ -51,7 +53,7 @@ class Step2Container extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                DownloadAppButton(),
+                DownloadAppButton(text: 'Download App',border: false,),
               ],
             ),
             SizedBox(
@@ -107,7 +109,7 @@ class Step2Container extends StatelessWidget {
     width: context.width * 0.05,
     ),
     Expanded(
-    child: Image.asset('${CommonString.appImg}img4.png')),
+    child: Image.asset('${CommonString.appImg}img4.png', height: context.width * 0.3,)),
     ],
     ),
       ),

@@ -99,38 +99,44 @@ class BottomNavBar extends StatelessWidget {
             SizedBox(
               height: context.width * 0.1,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const Text('Home'),
-                    SizedBox(
-                      width: context.width * 0.05,
-                    ),
-                    const Text('Contact Us')
-                  ],
-                ),
-                Row(
-                  children: [
-                    SvgPicture.asset('${CommonString.appImg}fbicon.svg'),
-                    SizedBox(
-                      width: context.width * 0.05,
-                    ),
-                    SvgPicture.asset(
-                        '${CommonString.appImg}twitericon.svg'),
-                    SizedBox(
-                      width: context.width * 0.05,
-                    ),
-                    SvgPicture.asset(
-                        '${CommonString.appImg}vimeoicon.svg'),
-                    SizedBox(
-                      width: context.width * 0.05,
-                    ),
-                    SvgPicture.asset('${CommonString.appImg}yticon.svg'),
-                  ],
-                )
-              ],
+            Center(
+              child: Column(
+               crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Home'),
+                      SizedBox(
+                        width: context.width * 0.05,
+                      ),
+                      const Text('Contact Us')
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset('${CommonString.appImg}fbicon.svg'),
+                      SizedBox(
+                        width: context.width * 0.05,
+                      ),
+                      SvgPicture.asset(
+                          '${CommonString.appImg}twitericon.svg'),
+                      SizedBox(
+                        width: context.width * 0.05,
+                      ),
+                      SvgPicture.asset(
+                          '${CommonString.appImg}vimeoicon.svg'),
+                      SizedBox(
+                        width: context.width * 0.05,
+                      ),
+                      SvgPicture.asset('${CommonString.appImg}yticon.svg'),
+                    ],
+                  )
+                ],
+              ),
             ),
             SizedBox(
               height: context.width * 0.05,
@@ -143,11 +149,11 @@ class BottomNavBar extends StatelessWidget {
 
               children: [
                 SizedBox(
-                    width: 250,
-                    height: 88,
+                    width: 150,
+                    height: 50,
                     child: Image.asset('${CommonString.appImg}logo.png')),
                 const Text('© 2019 Lift Media. All rights reserved.'),
-SizedBox(height: 15,),
+                    SizedBox(height: 15,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

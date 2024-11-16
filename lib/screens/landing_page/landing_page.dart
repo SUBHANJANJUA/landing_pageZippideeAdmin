@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -17,16 +19,19 @@ class LandingPage extends StatefulWidget {
 
   @override
   State<LandingPage> createState() => _LandingPageState();
+
 }
 
 class _LandingPageState extends State<LandingPage> {
   List<Widget> EventsData = [HomeTab(), ContactUsTab()];
  final ToogleAnswerController toogleMobile = Get.put(ToogleAnswerController());
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
  // int selectedIndex = 0;
 final DashboardController dashboardController = Get.put(DashboardController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(120),
@@ -34,17 +39,28 @@ final DashboardController dashboardController = Get.put(DashboardController());
         child: AppBar(
           toolbarHeight: 120,
           backgroundColor: Colors.white,
+          leading:  Responsive.isMobile(context)?
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: GestureDetector(
+                onTap: (){
+                  log('drawer testing');
+                  _scaffoldKey.currentState?.openDrawer();
+                },
+                child:Icon(Icons.list_rounded)),
+          ):SizedBox.shrink(),
+
           actions: [
             Responsive.isMobile(context)?
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: GestureDetector(
-                  onTap: (){
-                    Scaffold.of(context).openDrawer();
-                  },
-                  child:Container(width: 2,height: 2,)),
-            )
+                //for moible view
+           SizedBox.shrink()
 
+
+
+
+
+
+            //for chrome view
                 : Obx(()=>Row(
 
               mainAxisSize: MainAxisSize.min,
@@ -88,11 +104,12 @@ final DashboardController dashboardController = Get.put(DashboardController());
 
         ),
       ),
-      drawer:Obx(()=> Drawer(
+      drawer: Responsive.isMobile(context)? Obx(()=> Drawer(
         backgroundColor: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: ListView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 children: [
@@ -136,9 +153,8 @@ final DashboardController dashboardController = Get.put(DashboardController());
             ],
           ),
         ),
-      ),),
-      body:
-      PageView.builder(
+      ),):SizedBox.shrink(),
+      body: PageView.builder(
         itemCount: EventsData.length,
         controller: PageController(viewportFraction: 1),
         onPageChanged: (value) {
