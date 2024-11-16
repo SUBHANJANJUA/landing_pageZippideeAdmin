@@ -23,6 +23,18 @@ class TextSizeThemeChrome{
        height: 1.5,
      color: Color.fromRGBO(83, 83, 83, 1),
   );
+   static TextStyle PH3 =  const TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+       height: 1.5,
+    color: Colors.black,
+  );
+   static TextStyle PH23 =  const TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 17,
+       height: 1.5,
+    color: Colors.black,
+  );
    static TextStyle ButtonWhite =  const TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 18,
