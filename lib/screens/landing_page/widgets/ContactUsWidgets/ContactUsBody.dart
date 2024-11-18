@@ -1,15 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:zippidee_landing_page/resources/responsive/Responsive.dart';
 
+import '../../../../Controller/ContactUsContrller/ContactUsController.dart';
 import '../../../../resources/Colors/AppColor.dart';
 import '../../../../resources/Text_Size/text_size.dart';
 
 class ContactUsBody extends StatelessWidget {
-  const ContactUsBody({
+   ContactUsBody({
     super.key,
   });
-
+final ContactUsController controller = Get.put(ContactUsController());
+   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -183,19 +188,24 @@ class ContactUsBody extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Column(
+                              Form(
+                                 key:  _formKey,
+                                  child: Column(
                                 children: [
+                                  //Name
                                   TextFormField(
+                                    controller:controller.name,
+                                      validator: controller.ValidateName,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                               borderSide: BorderSide(
                                                 color: AppColor.FieldBorder,
                                               )),
                                           focusedBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                               borderSide: BorderSide(
                                                 color: AppColor.FieldBorder,
                                               )),
@@ -203,56 +213,65 @@ class ContactUsBody extends StatelessWidget {
                                   SizedBox(
                                     height: 20,
                                   ),
+                                  //Phone number
                                   TextFormField(
+                                      controller:controller.phone,
+                                      validator: controller.ValidatePhone,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                               borderSide: BorderSide(
                                                 color: AppColor.FieldBorder,
                                               )),
                                           focusedBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                               borderSide: BorderSide(
                                                 color: AppColor.FieldBorder,
                                               )),
                                           hintText: 'Phone')),
+                                  SizedBox(height: 20),
+                                  //Email
+                                  TextFormField(
+                                      controller:controller.email,
+                                      validator: controller.ValidateEmail,
+                                      decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(7),
+                                              borderSide: BorderSide(
+                                                color: AppColor.FieldBorder,
+                                              )),
+                                          focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(7),
+                                              borderSide: BorderSide(
+                                                color: AppColor.FieldBorder,
+                                              )),
+                                          hintText: 'Email')),
+                                  SizedBox(height: 20),
+                                  //Message
+                                  TextFormField(
+                                      controller:controller.msg,
+                                      validator: controller.ValidateMsg,
+                                      maxLines: 10,
+                                      decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(7),
+                                              borderSide: BorderSide(
+                                                color: AppColor.FieldBorder,
+                                              )),
+                                          focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(7),
+                                              borderSide: BorderSide(
+                                                color: AppColor.FieldBorder,
+                                              )),
+                                          hintText: 'Email')),
                                 ],
-                              ),
-                              SizedBox(height: 20),
-                              TextFormField(
-                                  decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      hintText: 'Email')),
-                              SizedBox(height: 20),
-                              TextFormField(
-                                  maxLines: 10,
-                                  decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          borderSide: BorderSide(
-                                            color: AppColor.FieldBorder,
-                                          )),
-                                      hintText: 'Email')),
+                              )),
                               SizedBox(
                                 height: 20,
                               ),
@@ -260,7 +279,15 @@ class ContactUsBody extends StatelessWidget {
                                 width: double.infinity,
                                 height: 57,
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: ()  {
+                                    log('without data');
+
+                                      if (controller.phone.text.isNotEmpty) {
+                                      controller.showdata();
+                                        log('every thing successfull');
+                                      }
+                                      log('without check');
+                                      },
                                   child: Text(
                                     'Send Message',
                                     style: TextStyle(color: Colors.white),
@@ -409,80 +436,98 @@ class ContactUsBody extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: TextFormField(
-                                          decoration: InputDecoration(
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(7),
-                                                  borderSide: BorderSide(
-                                                    color: AppColor.FieldBorder,
-                                                  )),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(7),
-                                                  borderSide: BorderSide(
-                                                    color: AppColor.FieldBorder,
-                                                  )),
-                                              hintText: 'Name')),
-                                    ),
-                                    SizedBox(
-                                      width: 30,
-                                    ),
-                                    Expanded(
-                                      child: TextFormField(
-                                          decoration: InputDecoration(
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(7),
-                                                  borderSide: BorderSide(
-                                                    color: AppColor.FieldBorder,
-                                                  )),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(7),
-                                                  borderSide: BorderSide(
-                                                    color: AppColor.FieldBorder,
-                                                  )),
-                                              hintText: 'Phone')),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 20),
-                                TextFormField(
-                                    decoration: InputDecoration(
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(7),
-                                            borderSide: BorderSide(
-                                              color: AppColor.FieldBorder,
-                                            )),
-                                        focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(7),
-                                            borderSide: BorderSide(
-                                              color: AppColor.FieldBorder,
-                                            )),
-                                        hintText: 'Email')),
-                                SizedBox(height: 20),
-                                TextFormField(
-                                    maxLines: 10,
-                                    decoration: InputDecoration(
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(7),
-                                            borderSide: BorderSide(
-                                              color: AppColor.FieldBorder,
-                                            )),
-                                        focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(7),
-                                            borderSide: BorderSide(
-                                              color: AppColor.FieldBorder,
-                                            )),
-                                        hintText: 'Email')),
+                                //Name and Phone
+                               Form(
+                                   key: _formKey,
+
+                                   child: Column(
+                                 children: [
+                                   Row(
+                                     children: [
+                                       Expanded(
+                                         child: TextFormField(
+                                             validator: controller.ValidateName,
+                                             controller: controller.name,
+                                             decoration: InputDecoration(
+                                                 enabledBorder: OutlineInputBorder(
+                                                     borderRadius:
+                                                     BorderRadius.circular(7),
+                                                     borderSide: BorderSide(
+                                                       color: AppColor.FieldBorder,
+                                                     )),
+                                                 focusedBorder: OutlineInputBorder(
+                                                     borderRadius:
+                                                     BorderRadius.circular(7),
+                                                     borderSide: BorderSide(
+                                                       color: AppColor.FieldBorder,
+                                                     )),
+                                                 hintText: 'Name')),
+                                       ),
+                                       SizedBox(
+                                         width: 30,
+                                       ),
+                                       Expanded(
+                                         child: TextFormField(
+                                             validator: controller.ValidatePhone,
+                                             controller: controller.phone,
+                                             decoration: InputDecoration(
+                                                 enabledBorder: OutlineInputBorder(
+                                                     borderRadius:
+                                                     BorderRadius.circular(7),
+                                                     borderSide: BorderSide(
+                                                       color: AppColor.FieldBorder,
+                                                     )),
+                                                 focusedBorder: OutlineInputBorder(
+                                                     borderRadius:
+                                                     BorderRadius.circular(7),
+                                                     borderSide: BorderSide(
+                                                       color: AppColor.FieldBorder,
+                                                     )),
+                                                 hintText: 'Phone')),
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(height: 20),
+                                   //Email
+                                   TextFormField(
+                                       validator: controller.ValidateEmail,
+                                       controller: controller.email,
+                                       decoration: InputDecoration(
+                                           enabledBorder: OutlineInputBorder(
+                                               borderRadius:
+                                               BorderRadius.circular(7),
+                                               borderSide: BorderSide(
+                                                 color: AppColor.FieldBorder,
+                                               )),
+                                           focusedBorder: OutlineInputBorder(
+                                               borderRadius:
+                                               BorderRadius.circular(7),
+                                               borderSide: BorderSide(
+                                                 color: AppColor.FieldBorder,
+                                               )),
+                                           hintText: 'Email')),
+                                   SizedBox(height: 20),
+                                   //Messsage
+                                   TextFormField(
+                                       validator: controller.ValidateMsg,
+                                       controller: controller.msg,
+                                       maxLines: 10,
+                                       decoration: InputDecoration(
+                                           enabledBorder: OutlineInputBorder(
+                                               borderRadius:
+                                               BorderRadius.circular(7),
+                                               borderSide: BorderSide(
+                                                 color: AppColor.FieldBorder,
+                                               )),
+                                           focusedBorder: OutlineInputBorder(
+                                               borderRadius:
+                                               BorderRadius.circular(7),
+                                               borderSide: BorderSide(
+                                                 color: AppColor.FieldBorder,
+                                               )),
+                                           hintText: 'Your Message')),
+                                 ],
+                               )),
                                 SizedBox(
                                   height: 20,
                                 ),
@@ -490,7 +535,36 @@ class ContactUsBody extends StatelessWidget {
                                   width: double.infinity,
                                   height: 57,
                                   child: ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      if (_formKey.currentState!.validate()) {
+                                         controller.showdata();
+                                        log('Every thing ok');
+                                         const String ownerEmail =
+                                             'support@zippidee.app'; // Replace with the owner's email
+                                         final Uri emailLaunchUri = Uri(
+                                           scheme: 'mailto',
+                                           path: ownerEmail,
+                                           queryParameters: {'subject': controller.name.text,
+                                             'body': 'Name(Form Fill name): ${controller.name.text}\n'
+                                                 'Description(Support Form): ${controller.msg.text}\n'
+                                             '===================================\n'
+
+
+
+
+                                           },
+                                         );
+
+                                         try {
+                                           if (await canLaunchUrl(emailLaunchUri)) {
+                                      await launchUrl(emailLaunchUri, mode: LaunchMode.externalApplication);
+                                      } else {
+                                      print('Could not launch $emailLaunchUri');
+                                      }
+                                      } catch (e) {
+                                      print('Error launching email: $e');
+                                      }
+                                      }
 
                                     },
                                     child: Text(

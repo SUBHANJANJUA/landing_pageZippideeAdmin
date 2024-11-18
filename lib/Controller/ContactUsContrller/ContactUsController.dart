@@ -1,35 +1,61 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class ContactUsController extends GetxController{
-  final name = TextEditingController();
-  final phone = TextEditingController();
-  final email = TextEditingController();
-  final msg = TextEditingController();
-  // Future <void> sendEmail ()async{
-  //   if (name.text.isNotEmpty &&
-  //       email.text.isNotEmpty &&
-  //       msg.text.isNotEmpty) {
-  //     final Email send = Email(
-  //       body:
-  //       'Name: ${nameController.text}\n\nDescription(Support Form): ${description.text} \n\n\n\n================================\n Name : ${authController.userName.value}\n Email : ${authController.userEmail.value}\n Phone : ${authController.userPhone.value}',
-  //       subject: subject.text,
-  //       recipients: [
-  //         'support@zippidee.app'
-  //       ], // Your email address
-  //
-  //       isHTML: false,
-  //     );
-  //     try {
-  //       await FlutterEmailSender.send(send);
-  //       // Utils.showSuccess('Successfully sent email.');
-  //     } catch (error) {
-  //       log(error.toString());
-  //       Utils.showError(
-  //           'Could not send email. Please try again later.');
-  //     }
-  //   } else {
-  //     Utils.showError('Add All Field');
-  //   }
-  // }
+  final TextEditingController name = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController msg = TextEditingController();
+
+void showdata(){
+  log(name.text);
+  log(phone.text);
+  log(email.text);
+  log(msg.text);
+  }
+
+  String? ValidateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Name is required';
+    } else if (value.length < 3) {
+      return 'Name must be at least 3 characters long';
+    }
+    return null;
+  }
+  String? ValidatePhone(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Phone is required';
+    } else if (value.length < 10) {
+      return 'Phone must be at least 10 characters long';
+    }
+    return null;
+  }
+  String? ValidateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required';
+    } else if (!value.contains('@') || !value.contains('.')) {
+      return 'Please enter valid email';
+    }
+    return null;
+  }
+  String? ValidateMsg(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Message is required';
+    } else if (value.length < 6) {
+      return 'Message must be at least 6 characters long';
+    }
+    return null;
+  }
+
+  @override
+  void dispose() {
+    name.dispose();
+    phone.dispose();
+    email.dispose();
+    msg.dispose();
+    super.dispose();
+  }
+
 }
